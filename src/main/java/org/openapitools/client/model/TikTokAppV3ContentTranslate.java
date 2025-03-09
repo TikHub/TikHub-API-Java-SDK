@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,27 +15,34 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * TikTok_APP_V3_Content_Translate
  */
 @ApiModel(description = "TikTok_APP_V3_Content_Translate")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class TikTokAppV3ContentTranslate {
-  public static final String SERIALIZED_NAME_TRG_LANG = "trg_lang";
-  @SerializedName(SERIALIZED_NAME_TRG_LANG)
+@JsonPropertyOrder({
+  TikTokAppV3ContentTranslate.JSON_PROPERTY_TRG_LANG,
+  TikTokAppV3ContentTranslate.JSON_PROPERTY_SRC_CONTENT
+})
+
+public class TikTokAppV3ContentTranslate implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TRG_LANG = "trg_lang";
   private String trgLang = "zh-Hans";
 
-  public static final String SERIALIZED_NAME_SRC_CONTENT = "src_content";
-  @SerializedName(SERIALIZED_NAME_SRC_CONTENT)
+  public static final String JSON_PROPERTY_SRC_CONTENT = "src_content";
   private String srcContent = "Hello, welcome to TikHub!";
 
 
@@ -51,6 +58,8 @@ public class TikTokAppV3ContentTranslate {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Trg Lang，目标语言ISO639-1代码，例如：zh-Hans/ Target language ISO639-1 code, e.g. zh-Hans")
+  @JsonProperty(JSON_PROPERTY_TRG_LANG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTrgLang() {
     return trgLang;
@@ -74,6 +83,8 @@ public class TikTokAppV3ContentTranslate {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Src Content，源语言内容，也就是需要翻译的内容/ Source language content, i.e. the content to be translated")
+  @JsonProperty(JSON_PROPERTY_SRC_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSrcContent() {
     return srcContent;

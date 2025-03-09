@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **data** | [**AnyOfstringnull**](AnyOfstringnull.md) | Data，The response data | 响应数据 |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,36 +15,43 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import org.openapitools.client.model.AnyOfstringnull;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * ResponseModel
  */
 @ApiModel(description = "ResponseModel")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class ResponseModel {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
+@JsonPropertyOrder({
+  ResponseModel.JSON_PROPERTY_CODE,
+  ResponseModel.JSON_PROPERTY_ROUTER,
+  ResponseModel.JSON_PROPERTY_PARAMS,
+  ResponseModel.JSON_PROPERTY_DATA
+})
+
+public class ResponseModel implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_CODE = "code";
   private Integer code = 200;
 
-  public static final String SERIALIZED_NAME_ROUTER = "router";
-  @SerializedName(SERIALIZED_NAME_ROUTER)
+  public static final String JSON_PROPERTY_ROUTER = "router";
   private String router = "";
 
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
+  public static final String JSON_PROPERTY_PARAMS = "params";
   private String params;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
+  public static final String JSON_PROPERTY_DATA = "data";
   private AnyOfstringnull data = null;
 
 
@@ -60,6 +67,8 @@ public class ResponseModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Code，HTTP status code | HTTP状态码")
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCode() {
     return code;
@@ -83,6 +92,8 @@ public class ResponseModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Router，The endpoint that generated this response | 生成此响应的端点")
+  @JsonProperty(JSON_PROPERTY_ROUTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRouter() {
     return router;
@@ -106,6 +117,8 @@ public class ResponseModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getParams() {
     return params;
@@ -128,7 +141,10 @@ public class ResponseModel {
    * @return data
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "Data，The response data | 响应数据")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AnyOfstringnull getData() {
     return data;

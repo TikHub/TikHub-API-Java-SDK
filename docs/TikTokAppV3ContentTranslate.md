@@ -11,4 +11,8 @@ Name | Type | Description | Notes
 **srcContent** | **String** | Src Content，源语言内容，也就是需要翻译的内容/ Source language content, i.e. the content to be translated |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **proxy** | [**Object**](.md) | Proxy，Proxy |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

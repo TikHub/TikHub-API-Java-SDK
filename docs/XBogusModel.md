@@ -11,4 +11,8 @@ Name | Type | Description | Notes
 **userAgent** | **String** | User Agent，请求API时的User-Agent | User-Agent when requesting the API | 
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

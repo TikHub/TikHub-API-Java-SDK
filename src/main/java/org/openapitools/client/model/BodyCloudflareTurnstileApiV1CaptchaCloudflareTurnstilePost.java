@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,31 +15,38 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * Body_cloudflare_turnstile_api_v1_captcha_cloudflare_turnstile_post
  */
 @ApiModel(description = "Body_cloudflare_turnstile_api_v1_captcha_cloudflare_turnstile_post")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost {
-  public static final String SERIALIZED_NAME_SITEKEY = "sitekey";
-  @SerializedName(SERIALIZED_NAME_SITEKEY)
+@JsonPropertyOrder({
+  BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost.JSON_PROPERTY_SITEKEY,
+  BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost.JSON_PROPERTY_URL,
+  BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost.JSON_PROPERTY_PROXY
+})
+
+public class BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_SITEKEY = "sitekey";
   private String sitekey;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_PROXY = "proxy";
-  @SerializedName(SERIALIZED_NAME_PROXY)
+  public static final String JSON_PROPERTY_PROXY = "proxy";
   private Object proxy;
 
 
@@ -53,7 +60,10 @@ public class BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost {
    * Sitekey，Sitekey
    * @return sitekey
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Sitekey，Sitekey")
+  @JsonProperty(JSON_PROPERTY_SITEKEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSitekey() {
     return sitekey;
@@ -75,7 +85,10 @@ public class BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost {
    * Url，URL
    * @return url
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Url，URL")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUrl() {
     return url;
@@ -98,7 +111,10 @@ public class BodyCloudflareTurnstileApiV1CaptchaCloudflareTurnstilePost {
    * @return proxy
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "Proxy，Proxy")
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getProxy() {
     return proxy;

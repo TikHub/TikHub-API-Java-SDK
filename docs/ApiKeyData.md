@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **apiKeyStatus** | **Integer** | Api Key Status | 
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

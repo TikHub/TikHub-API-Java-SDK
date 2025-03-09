@@ -15,4 +15,8 @@ Name | Type | Description | Notes
 **isActive** | **Boolean** | Is Active | 
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

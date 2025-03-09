@@ -12,4 +12,8 @@ Name | Type | Description | Notes
 **type** | **String** | Error Type | 
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

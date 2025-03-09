@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,44 +15,51 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * UserData
  */
 @ApiModel(description = "UserData")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class UserData {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+@JsonPropertyOrder({
+  UserData.JSON_PROPERTY_EMAIL,
+  UserData.JSON_PROPERTY_BALANCE,
+  UserData.JSON_PROPERTY_FREE_CREDIT,
+  UserData.JSON_PROPERTY_EMAIL_VERIFIED,
+  UserData.JSON_PROPERTY_ACCOUNT_DISABLED,
+  UserData.JSON_PROPERTY_IS_ACTIVE
+})
+
+public class UserData implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
+  public static final String JSON_PROPERTY_BALANCE = "balance";
   private BigDecimal balance;
 
-  public static final String SERIALIZED_NAME_FREE_CREDIT = "free_credit";
-  @SerializedName(SERIALIZED_NAME_FREE_CREDIT)
+  public static final String JSON_PROPERTY_FREE_CREDIT = "free_credit";
   private BigDecimal freeCredit;
 
-  public static final String SERIALIZED_NAME_EMAIL_VERIFIED = "email_verified";
-  @SerializedName(SERIALIZED_NAME_EMAIL_VERIFIED)
+  public static final String JSON_PROPERTY_EMAIL_VERIFIED = "email_verified";
   private Boolean emailVerified;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_DISABLED = "account_disabled";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_DISABLED)
+  public static final String JSON_PROPERTY_ACCOUNT_DISABLED = "account_disabled";
   private Boolean accountDisabled;
 
-  public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
-  @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
+  public static final String JSON_PROPERTY_IS_ACTIVE = "is_active";
   private Boolean isActive;
 
 
@@ -66,7 +73,10 @@ public class UserData {
    * Email
    * @return email
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Email")
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmail() {
     return email;
@@ -88,7 +98,11 @@ public class UserData {
    * Balance
    * @return balance
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "Balance")
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BigDecimal getBalance() {
     return balance;
@@ -110,7 +124,11 @@ public class UserData {
    * Free Credit
    * @return freeCredit
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "Free Credit")
+  @JsonProperty(JSON_PROPERTY_FREE_CREDIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BigDecimal getFreeCredit() {
     return freeCredit;
@@ -132,9 +150,12 @@ public class UserData {
    * Email Verified
    * @return emailVerified
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Email Verified")
+  @JsonProperty(JSON_PROPERTY_EMAIL_VERIFIED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getEmailVerified() {
+  public Boolean isEmailVerified() {
     return emailVerified;
   }
 
@@ -154,9 +175,12 @@ public class UserData {
    * Account Disabled
    * @return accountDisabled
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Account Disabled")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getAccountDisabled() {
+  public Boolean isAccountDisabled() {
     return accountDisabled;
   }
 
@@ -176,9 +200,12 @@ public class UserData {
    * Is Active
    * @return isActive
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Is Active")
+  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 

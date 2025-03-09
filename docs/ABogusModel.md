@@ -15,4 +15,8 @@ Name | Type | Description | Notes
 **index2** | **Integer** | Index 2，加密明文列表的第一个值，无特殊要求，默认为14 |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

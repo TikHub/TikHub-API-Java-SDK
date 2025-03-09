@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **userData** | [**UserData**](UserData.md) |  | 
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

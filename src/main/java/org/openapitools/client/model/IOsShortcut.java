@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,43 +15,50 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * iOS_Shortcut
  */
 @ApiModel(description = "iOS_Shortcut")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class IOsShortcut {
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
+@JsonPropertyOrder({
+  IOsShortcut.JSON_PROPERTY_VERSION,
+  IOsShortcut.JSON_PROPERTY_UPDATE,
+  IOsShortcut.JSON_PROPERTY_LINK,
+  IOsShortcut.JSON_PROPERTY_LINK_EN,
+  IOsShortcut.JSON_PROPERTY_NOTE,
+  IOsShortcut.JSON_PROPERTY_NOTE_EN
+})
+
+public class IOsShortcut implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public static final String SERIALIZED_NAME_UPDATE = "update";
-  @SerializedName(SERIALIZED_NAME_UPDATE)
+  public static final String JSON_PROPERTY_UPDATE = "update";
   private String update;
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
+  public static final String JSON_PROPERTY_LINK = "link";
   private String link;
 
-  public static final String SERIALIZED_NAME_LINK_EN = "link_en";
-  @SerializedName(SERIALIZED_NAME_LINK_EN)
+  public static final String JSON_PROPERTY_LINK_EN = "link_en";
   private String linkEn;
 
-  public static final String SERIALIZED_NAME_NOTE = "note";
-  @SerializedName(SERIALIZED_NAME_NOTE)
+  public static final String JSON_PROPERTY_NOTE = "note";
   private String note;
 
-  public static final String SERIALIZED_NAME_NOTE_EN = "note_en";
-  @SerializedName(SERIALIZED_NAME_NOTE_EN)
+  public static final String JSON_PROPERTY_NOTE_EN = "note_en";
   private String noteEn;
 
 
@@ -65,7 +72,10 @@ public class IOsShortcut {
    * Version
    * @return version
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Version")
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getVersion() {
     return version;
@@ -87,7 +97,10 @@ public class IOsShortcut {
    * Update
    * @return update
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Update")
+  @JsonProperty(JSON_PROPERTY_UPDATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUpdate() {
     return update;
@@ -109,7 +122,10 @@ public class IOsShortcut {
    * Link
    * @return link
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Link")
+  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLink() {
     return link;
@@ -131,7 +147,10 @@ public class IOsShortcut {
    * Link En
    * @return linkEn
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Link En")
+  @JsonProperty(JSON_PROPERTY_LINK_EN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getLinkEn() {
     return linkEn;
@@ -153,7 +172,10 @@ public class IOsShortcut {
    * Note
    * @return note
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Note")
+  @JsonProperty(JSON_PROPERTY_NOTE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNote() {
     return note;
@@ -175,7 +197,10 @@ public class IOsShortcut {
    * Note En
    * @return noteEn
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Note En")
+  @JsonProperty(JSON_PROPERTY_NOTE_EN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNoteEn() {
     return noteEn;

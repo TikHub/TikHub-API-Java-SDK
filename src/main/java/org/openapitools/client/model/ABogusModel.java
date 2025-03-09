@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,43 +15,50 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * ABogusModel
  */
 @ApiModel(description = "ABogusModel")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class ABogusModel {
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+@JsonPropertyOrder({
+  ABogusModel.JSON_PROPERTY_URL,
+  ABogusModel.JSON_PROPERTY_DATA,
+  ABogusModel.JSON_PROPERTY_USER_AGENT,
+  ABogusModel.JSON_PROPERTY_INDEX0,
+  ABogusModel.JSON_PROPERTY_INDEX1,
+  ABogusModel.JSON_PROPERTY_INDEX2
+})
+
+public class ABogusModel implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
+  public static final String JSON_PROPERTY_DATA = "data";
   private String data;
 
-  public static final String SERIALIZED_NAME_USER_AGENT = "user_agent";
-  @SerializedName(SERIALIZED_NAME_USER_AGENT)
+  public static final String JSON_PROPERTY_USER_AGENT = "user_agent";
   private String userAgent;
 
-  public static final String SERIALIZED_NAME_INDEX0 = "index_0";
-  @SerializedName(SERIALIZED_NAME_INDEX0)
+  public static final String JSON_PROPERTY_INDEX0 = "index_0";
   private Integer index0 = 0;
 
-  public static final String SERIALIZED_NAME_INDEX1 = "index_1";
-  @SerializedName(SERIALIZED_NAME_INDEX1)
+  public static final String JSON_PROPERTY_INDEX1 = "index_1";
   private Integer index1 = 1;
 
-  public static final String SERIALIZED_NAME_INDEX2 = "index_2";
-  @SerializedName(SERIALIZED_NAME_INDEX2)
+  public static final String JSON_PROPERTY_INDEX2 = "index_2";
   private Integer index2 = 14;
 
 
@@ -65,7 +72,10 @@ public class ABogusModel {
    * Url，请求的API URL，需要使用urlencode(url, safe&#x3D;&#39;*&#39;)进行编码 | The requested API URL, needs to be encoded using urlencode(url, safe&#x3D;&#39;*&#39;)
    * @return url
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Url，请求的API URL，需要使用urlencode(url, safe='*')进行编码 | The requested API URL, needs to be encoded using urlencode(url, safe='*')")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUrl() {
     return url;
@@ -87,7 +97,10 @@ public class ABogusModel {
    * Data，POST请求API时的载荷数据，需要使用urlencode(data, safe&#x3D;&#39;*&#39;)进行编码 | The payload data when requesting the API with POST, needs to be encoded using urlencode(data, safe&#x3D;&#39;*&#39;)
    * @return data
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Data，POST请求API时的载荷数据，需要使用urlencode(data, safe='*')进行编码 | The payload data when requesting the API with POST, needs to be encoded using urlencode(data, safe='*')")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getData() {
     return data;
@@ -109,7 +122,10 @@ public class ABogusModel {
    * User Agent，请求API时的User-Agent | User-Agent when requesting the API
    * @return userAgent
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "User Agent，请求API时的User-Agent | User-Agent when requesting the API")
+  @JsonProperty(JSON_PROPERTY_USER_AGENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUserAgent() {
     return userAgent;
@@ -133,6 +149,8 @@ public class ABogusModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Index 0，加密明文列表的第一个值，无特殊要求，默认为0")
+  @JsonProperty(JSON_PROPERTY_INDEX0)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getIndex0() {
     return index0;
@@ -156,6 +174,8 @@ public class ABogusModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Index 1，加密明文列表的第一个值，无特殊要求，默认为1")
+  @JsonProperty(JSON_PROPERTY_INDEX1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getIndex1() {
     return index1;
@@ -179,6 +199,8 @@ public class ABogusModel {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Index 2，加密明文列表的第一个值，无特殊要求，默认为14")
+  @JsonProperty(JSON_PROPERTY_INDEX2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getIndex2() {
     return index2;

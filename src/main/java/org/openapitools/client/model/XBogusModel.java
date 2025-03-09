@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,27 +15,34 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * XBogusModel
  */
 @ApiModel(description = "XBogusModel")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class XBogusModel {
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+@JsonPropertyOrder({
+  XBogusModel.JSON_PROPERTY_URL,
+  XBogusModel.JSON_PROPERTY_USER_AGENT
+})
+
+public class XBogusModel implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_USER_AGENT = "user_agent";
-  @SerializedName(SERIALIZED_NAME_USER_AGENT)
+  public static final String JSON_PROPERTY_USER_AGENT = "user_agent";
   private String userAgent;
 
 
@@ -49,7 +56,10 @@ public class XBogusModel {
    * Url，请求的API URL，不需要进行编码 | The requested API URL, no need to encode
    * @return url
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Url，请求的API URL，不需要进行编码 | The requested API URL, no need to encode")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUrl() {
     return url;
@@ -71,7 +81,10 @@ public class XBogusModel {
    * User Agent，请求API时的User-Agent | User-Agent when requesting the API
    * @return userAgent
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "User Agent，请求API时的User-Agent | User-Agent when requesting the API")
+  @JsonProperty(JSON_PROPERTY_USER_AGENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUserAgent() {
     return userAgent;

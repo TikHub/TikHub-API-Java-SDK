@@ -1,5 +1,5 @@
 /*
- * Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
+ * TikHub.io - Your Ultimate Social Media Data & API Marketplace
  * High-performance asynchronous Douyin(抖音) TikTok Xiaohongshu(小红书) Kuaishou(快手) Weibo(微博) Instagram YouTube(油管) Twitter(X) Captcha Solver(验证码解决器) Temp Mail(临时邮箱) API(接口).
  *
  * The version of the OpenAPI document: 1.0.0
@@ -15,43 +15,50 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.AnyOfDateTimenull;
-import org.threeten.bp.OffsetDateTime;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * APIKeyData
  */
 @ApiModel(description = "APIKeyData")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-19T06:19:02.654880600-07:00[America/Los_Angeles]")
-public class ApiKeyData {
-  public static final String SERIALIZED_NAME_API_KEY_NAME = "api_key_name";
-  @SerializedName(SERIALIZED_NAME_API_KEY_NAME)
+@JsonPropertyOrder({
+  ApiKeyData.JSON_PROPERTY_API_KEY_NAME,
+  ApiKeyData.JSON_PROPERTY_API_KEY_SCOPES,
+  ApiKeyData.JSON_PROPERTY_CREATED_AT,
+  ApiKeyData.JSON_PROPERTY_EXPIRES_AT,
+  ApiKeyData.JSON_PROPERTY_API_KEY_STATUS
+})
+
+public class ApiKeyData implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_API_KEY_NAME = "api_key_name";
   private String apiKeyName;
 
-  public static final String SERIALIZED_NAME_API_KEY_SCOPES = "api_key_scopes";
-  @SerializedName(SERIALIZED_NAME_API_KEY_SCOPES)
-  private List<String> apiKeyScopes = new ArrayList<String>();
+  public static final String JSON_PROPERTY_API_KEY_SCOPES = "api_key_scopes";
+  private List<String> apiKeyScopes = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   private AnyOfDateTimenull expiresAt = null;
 
-  public static final String SERIALIZED_NAME_API_KEY_STATUS = "api_key_status";
-  @SerializedName(SERIALIZED_NAME_API_KEY_STATUS)
+  public static final String JSON_PROPERTY_API_KEY_STATUS = "api_key_status";
   private Integer apiKeyStatus;
 
 
@@ -65,7 +72,10 @@ public class ApiKeyData {
    * Api Key Name
    * @return apiKeyName
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Api Key Name")
+  @JsonProperty(JSON_PROPERTY_API_KEY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getApiKeyName() {
     return apiKeyName;
@@ -92,7 +102,10 @@ public class ApiKeyData {
    * Api Key Scopes
    * @return apiKeyScopes
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Api Key Scopes")
+  @JsonProperty(JSON_PROPERTY_API_KEY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getApiKeyScopes() {
     return apiKeyScopes;
@@ -114,7 +127,11 @@ public class ApiKeyData {
    * Created At
    * @return createdAt
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "Created At")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -136,7 +153,11 @@ public class ApiKeyData {
    * Expires At
    * @return expiresAt
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "Expires At")
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public AnyOfDateTimenull getExpiresAt() {
     return expiresAt;
@@ -158,7 +179,10 @@ public class ApiKeyData {
    * Api Key Status
    * @return apiKeyStatus
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "Api Key Status")
+  @JsonProperty(JSON_PROPERTY_API_KEY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getApiKeyStatus() {
     return apiKeyStatus;
