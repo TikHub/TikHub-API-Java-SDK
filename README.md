@@ -94,7 +94,9 @@ public class TikHubApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Set the base URL for TikHub API
-        defaultClient.setBasePath("https://api.tikhub.io");
+        defaultClient.setScheme("https") // Use HTTPS
+                     .setHost("api.tikhub.io") // Correct API host
+                     .setBasePath(""); // No extra path required
 
         // Set API Key authentication in the request header
         defaultClient.addDefaultHeader("Authorization", "Bearer YOUR_API_KEY_HERE");
@@ -132,6 +134,13 @@ import org.openapitools.client.model.ResponseModel;
 public class EndpointsExample {
     public static void main(String[] args) {
         ApiClient client = Configuration.getDefaultApiClient();
+        
+        // Set the base URL for TikHub API
+        client.setScheme("https") // Use HTTPS
+                     .setHost("api.tikhub.io") // Correct API host
+                     .setBasePath(""); // No extra path required
+
+        // Set API Key authentication in the request header
         client.addDefaultHeader("Authorization", "Bearer YOUR_API_KEY_HERE");
 
         TikHubUserApiApi apiInstance = new TikHubUserApiApi(client);
@@ -161,6 +170,13 @@ import org.openapitools.client.model.ResponseModel;
 public class PricingExample {
     public static void main(String[] args) {
         ApiClient client = Configuration.getDefaultApiClient();
+        
+        // Set the base URL for TikHub API
+        client.setScheme("https") // Use HTTPS
+                     .setHost("api.tikhub.io") // Correct API host
+                     .setBasePath(""); // No extra path required
+
+        // Set API Key authentication in the request header
         client.addDefaultHeader("Authorization", "Bearer YOUR_API_KEY_HERE");
 
         TikHubUserApiApi apiInstance = new TikHubUserApiApi(client);
